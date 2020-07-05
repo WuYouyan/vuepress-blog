@@ -1,82 +1,53 @@
 module.exports = {
     title: 'WY Blog',
     description: 'Just for fun',
-    markdown: {
-        lineNumbers: true
-    },
-    locales: {
-        // 键名是该语言所属的子路径
-        // 作为特例，默认语言可以使用 '/' 作为其路径。
-        '/': {
-          lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
-          title: 'WY Blog',
-          description: 'Just for fun'
-        },
-        '/zh/': {
-          lang: 'zh-CN',
-        //   title: 'WY Blog', // will use the default of root 
-          description: '探索的乐趣'
-        }
-    },
+    // url:'/',
+    head: [
+        ['link',  { rel: "icon", type: 'image/jpg',sizes: "32x32", href: "/assets/favicons/favicon.jpg"}]
+    ],
+    theme: '@vuepress/theme-blog',
     themeConfig: {
-        locales: { 
-            '/': {
-                selectText: 'Languages',
-                label: 'English',
-                // ariaLabel: 'Languages',
-                editLinkText: 'Edit this page on GitHub',
-                // serviceWorker: {
-                //   updatePopup: {
-                //     message: "New content is available.",
-                //     buttonText: "Refresh"
-                //   }
-                // },
-                algolia: {},
-                nav: [
-                  { text: 'Home', link: '/', ariaLabel: 'Home' },
-                  { 
-                    text: 'More', 
-                    // link: '/more/', 
-                    ariaLabel: 'Others', 
-                    items: [
-                        { text: 'home', link: '/' },
-                        { text: 'chinese home', link: '/zh/' }
-                    ]
-                  }
-                ],
-                sidebar: [
-                    {title: 'chinese home',  path: '/zh/', children: []}
-                ]
-              },
-              '/zh/': {
-                // 多语言下拉菜单的标题
-                selectText: '选择语言',
-                // 该语言在下拉菜单中的标签
-                label: '简体中文',
-                // 编辑链接文字
-                editLinkText: '在 GitHub 上编辑此页',
-                // Service Worker 的配置
-                // serviceWorker: {
-                //   updatePopup: {
-                //     message: "发现新内容可用.",
-                //     buttonText: "刷新"
-                //   }
-                // },
-                // 当前 locale 的 algolia docsearch 选项
-                algolia: {},
-                nav: [
-                  { text: '主页', link: '/zh/' },
-                  { 
-                    text: '更多', 
-                    // link: '/more/', 
-                    ariaLabel: 'Others', 
-                    items: [
-                        { text: '英文首页', link: '/' },
-                    ]
-                  }
-                ],
-               
-            }
-        }
+        // 你的GitHub仓库，请正确填写
+        repo: 'https://github.com/WuYouyan/vuepress-blog.git',
+        // 自定义仓库链接文字。
+        repoLabel: 'GitHub',
+        // lastUpdated: 'Last Updated', // string | boolean
+        smoothScroll: true,
+        nav: [
+          {
+            text: 'Blog',
+            link: '/',
+          },
+          {
+            text: 'Tags',
+            link: '/tag/',
+          },
+          {
+            text: 'About',
+            link: '/tag/',
+          },
+        ],
+        directories: [
+          {
+            id: 'post',
+            dirname: '_posts',
+            path: '/',
+            pagination: {
+              lengthPerPage: 10,
+            },
+          },
+        ],
+        footer: {
+          contact: [
+            {
+              type: 'github',
+              link: 'https://github.com/wuyouyan',
+            },
+            {
+              type: 'linkedin',
+              link: 'https://www.linkedin.com/in/youyanwu460221162/',
+            },
+          ],
+        },
     }
 }
