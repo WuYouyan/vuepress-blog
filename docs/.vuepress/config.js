@@ -1,6 +1,7 @@
 module.exports = {
     title: 'WY Blog',
     description: 'Just for fun',
+    base: '/vuepress-blog/',
     // url:'/',
     head: [
         ['link',  { rel: "icon", type: 'image/jpg',sizes: "32x32", href: "/assets/favicons/favicon.jpg"}]
